@@ -51,7 +51,7 @@ jobs:
           enable-cache: true
 
       - name: Test with python ${{ matrix.python-version }}
-        run: uv run coverage run -m pytest tests/unit
+        run: uv run coverage run -m pytest
 
       - name: Get Test Coverage score
         id: total
