@@ -1,0 +1,30 @@
+name: Publish package
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  tests:
+    uses: ./.github/workflows/test.yml
+    secrets: inherit
+
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install uv
+      uses: astral-sh/setup-uv@v6
+      with:
+          enable-cache: true
+
+    - name: Publish package to internal package index
+      run: |
+        uv build
+        uv publish --index sevan-internal-package-index
+      env:
+        UV_PUBLISH_USERNAME: ${{ secrets.PACKAGR_USERNAME }}
+        UV_PUBLISH_PASSWORD: ${{ secrets.PACKAGR_PASSWORD }}

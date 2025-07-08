@@ -1,5 +1,5 @@
-# python-template
-A template repository for python projects in Sevan DWT.
+# python-library-template
+A template repository for python libraries made by Sevan DWT.
 
 ## Setup environment with uv
 
@@ -53,15 +53,6 @@ C:\Users\<your-username>\_netrc
 ```
 
 Your setup should now be complete.
-
-
-## Run a script
-
-To test your setup, you can try to run one of your scripts:
-
-```console
-uv run .\src\main.py
-```
 
 ## Develop your own scripts
 
